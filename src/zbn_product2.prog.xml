@@ -28,7 +28,7 @@
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>STRIP_CTRL</TYPE>
-       <NAME>TC1</NAME>
+       <NAME>TB_ID</NAME>
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>004</LINE>
        <COLUMN>006</COLUMN>
@@ -38,7 +38,7 @@
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
        <NAME>SUB1</NAME>
-       <ELEMENT_OF>TC1</ELEMENT_OF>
+       <ELEMENT_OF>TB_ID</ELEMENT_OF>
        <LINE>006</LINE>
        <COLUMN>007</COLUMN>
        <LENGTH>052</LENGTH>
@@ -49,7 +49,7 @@
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
        <NAME>SUB2</NAME>
-       <ELEMENT_OF>TC1</ELEMENT_OF>
+       <ELEMENT_OF>TB_ID</ELEMENT_OF>
        <LINE>006</LINE>
        <COLUMN>007</COLUMN>
        <LENGTH>051</LENGTH>
@@ -60,7 +60,7 @@
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
        <NAME>SUB3</NAME>
-       <ELEMENT_OF>TC1</ELEMENT_OF>
+       <ELEMENT_OF>TB_ID</ELEMENT_OF>
        <LINE>006</LINE>
        <COLUMN>007</COLUMN>
        <LENGTH>051</LENGTH>
@@ -71,7 +71,7 @@
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
        <NAME>SUB4</NAME>
-       <ELEMENT_OF>TC1</ELEMENT_OF>
+       <ELEMENT_OF>TB_ID</ELEMENT_OF>
        <LINE>006</LINE>
        <COLUMN>007</COLUMN>
        <LENGTH>052</LENGTH>
@@ -85,7 +85,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>FRAME</TYPE>
-       <NAME>TB_ID</NAME>
+       <NAME>BX1</NAME>
        <TEXT>Ürün_Silme_ve_Değiştirme_Alanı_______________________________________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>003</COLUMN>
@@ -106,7 +106,7 @@
        <LENGTH>007</LENGTH>
        <VISLENGTH>007</VISLENGTH>
        <HEIGHT>001</HEIGHT>
-       <PUSH_FCODE>&amp;BT1</PUSH_FCODE>
+       <PUSH_FCODE>&amp;DUZENLE</PUSH_FCODE>
        <FORMAT>CHAR</FORMAT>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -138,7 +138,7 @@
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>STRIP_CTRL</CONT_TYPE>
-       <CONT_NAME>TC1</CONT_NAME>
+       <CONT_NAME>TB_ID</CONT_NAME>
        <TYPE>PUSH</TYPE>
        <NAME>TAB1</NAME>
        <TEXT>Tab1</TEXT>
@@ -154,7 +154,7 @@
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>STRIP_CTRL</CONT_TYPE>
-       <CONT_NAME>TC1</CONT_NAME>
+       <CONT_NAME>TB_ID</CONT_NAME>
        <TYPE>PUSH</TYPE>
        <NAME>TAB2</NAME>
        <TEXT>Tab2</TEXT>
@@ -170,7 +170,7 @@
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>STRIP_CTRL</CONT_TYPE>
-       <CONT_NAME>TC1</CONT_NAME>
+       <CONT_NAME>TB_ID</CONT_NAME>
        <TYPE>PUSH</TYPE>
        <NAME>TAB3</NAME>
        <TEXT>Tab3</TEXT>
@@ -186,7 +186,7 @@
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>STRIP_CTRL</CONT_TYPE>
-       <CONT_NAME>TC1</CONT_NAME>
+       <CONT_NAME>TB_ID</CONT_NAME>
        <TYPE>PUSH</TYPE>
        <NAME>TAB4</NAME>
        <TEXT>Tab4</TEXT>
@@ -206,7 +206,19 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE STATUS_0100.</LINE>
+       <LINE>  MODULE status_0100.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub1 INCLUDING sy-repid &apos;0110&apos;.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub2 INCLUDING sy-repid &apos;0120&apos;.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub3 INCLUDING sy-repid &apos;0130&apos;.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub4 INCLUDING sy-repid &apos;0140&apos;.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>*</LINE>
@@ -215,7 +227,19 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE USER_COMMAND_0100.</LINE>
+       <LINE>  MODULE user_command_0100.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub1.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub2.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub3.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sub4.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -237,6 +261,36 @@
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>LB1</NAME>
+       <TEXT>Urun_ID:</TEXT>
+       <LINE>002</LINE>
+       <COLUMN>003</COLUMN>
+       <LENGTH>008</LENGTH>
+       <VISLENGTH>008</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>GV_URUNID</NAME>
+       <TEXT>__________</TEXT>
+       <LINE>002</LINE>
+       <COLUMN>013</COLUMN>
+       <LENGTH>010</LENGTH>
+       <VISLENGTH>010</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>INT4</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
@@ -285,6 +339,36 @@
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>LB2</NAME>
+       <TEXT>Tedarikçi_ID:</TEXT>
+       <LINE>002</LINE>
+       <COLUMN>003</COLUMN>
+       <LENGTH>013</LENGTH>
+       <VISLENGTH>013</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>GV_SUPID</NAME>
+       <TEXT>__________</TEXT>
+       <LINE>002</LINE>
+       <COLUMN>017</COLUMN>
+       <LENGTH>010</LENGTH>
+       <VISLENGTH>010</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>INT4</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
