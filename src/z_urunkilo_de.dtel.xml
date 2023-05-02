@@ -11,11 +11,13 @@
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>30</SCRLEN3>
     <DDTEXT>urunkilo data element</DDTEXT>
-    <REPTEXT>Urun Kilo</REPTEXT>
-    <SCRTEXT_S>Urun K.</SCRTEXT_S>
-    <SCRTEXT_M>Urun Kilo</SCRTEXT_M>
-    <SCRTEXT_L>Urun Kilo</SCRTEXT_L>
+    <REPTEXT>UrunKilo</REPTEXT>
+    <SCRTEXT_S>U.K.</SCRTEXT_S>
+    <SCRTEXT_M>U.Kilo</SCRTEXT_M>
+    <SCRTEXT_L>UrunKilo</SCRTEXT_L>
+    <ACTFLAG>Y</ACTFLAG>
     <DTELMASTER>E</DTELMASTER>
+    <RESERVEDTE>D</RESERVEDTE>
     <REFKIND>D</REFKIND>
    </DD04V>
   </asx:values>

@@ -124,7 +124,7 @@ ENDMODULE.
 *&---------------------------------------------------------------------*
   FORM save_data.
 
-  gs_product-uruncode = gv_uruncode.
+  gs_product-uruncode2 = gv_uruncode.
   gs_product-urunid = gv_urunid.
   gs_product-urunisim = gv_urunad.
   gs_product-urunkilo = gv_urunkilo.
