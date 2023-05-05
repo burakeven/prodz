@@ -7,6 +7,9 @@ REPORT zbn_product2.
 INCLUDE zbn_product2_top.
 INCLUDE zbn_product2_frm.
 
+INCLUDE zbn_product2_001. "PBO
+INCLUDE zbn_prodcut2_101. "PAI
+
 CONTROLS tb_id TYPE TABSTRIP.
 
 *DATA: gs_product  TYPE zbn_urunbilgi,

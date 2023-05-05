@@ -23,3 +23,8 @@ DATA: gv_urunid     TYPE int4,
       gv_suppupd type int4,
       gv_strupd type int4,
       gv_depoupd type int4.
+
+DATA: go_container TYPE REF TO cl_gui_custom_container,
+      go_grid      TYPE REF TO cl_gui_alv_grid.
+
+data: gt_prodz type TABLE OF zbn_prodz.

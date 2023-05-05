@@ -79,6 +79,15 @@
        <C_SCROLL_V>X</C_SCROLL_V>
        <C_SCROLL_H>X</C_SCROLL_H>
       </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>CC_ALV2</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>016</LINE>
+       <COLUMN>003</COLUMN>
+       <LENGTH>116</LENGTH>
+       <HEIGHT>011</HEIGHT>
+      </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
       <RPY_DYFATC>
@@ -207,6 +216,12 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  MODULE status_0100.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE select_data.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE create_grid.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  CALL SUBSCREEN sub1 INCLUDING sy-repid &apos;0110&apos;.</LINE>
