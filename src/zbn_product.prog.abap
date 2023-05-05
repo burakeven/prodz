@@ -164,6 +164,7 @@ FORM save_data.
   gs_supp-suppname = gv_suppname.
   gs_supp-supploc = gv_supploc.
   gs_supp-suppcont = gv_suppcontact.
+  gs_supp-urunid = gv_urunid3.
 
   gs_depo-depoid = gv_depoid2.
   gs_depo-deponame = gv_deponame.

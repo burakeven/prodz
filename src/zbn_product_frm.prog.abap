@@ -20,7 +20,8 @@
   DATA: gv_suppid      TYPE int4,
         gv_suppname    TYPE char20,
         gv_supploc     TYPE char20,
-        gv_suppcontact(11) TYPE n.
+        gv_suppcontact(11) TYPE n,
+        gv_urunid3 type int4.
 
   "DEPOLAMA BILGILERI INPUT
   DATA: gv_strid   TYPE int4,
