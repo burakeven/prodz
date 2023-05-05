@@ -4,7 +4,8 @@
 *&
 *&---------------------------------------------------------------------*
 REPORT zbn_product2.
-
+INCLUDE zbn_product2_top.
+INCLUDE zbn_product2_frm.
 
 CONTROLS tb_id TYPE TABSTRIP.
 
@@ -12,24 +13,6 @@ CONTROLS tb_id TYPE TABSTRIP.
 *      gs_supp     TYPE zbn_supplier,
 *      gs_depo     TYPE zbn_depo,
 *      gs_depolama TYPE zbn_depolama.
-
-TABLES: zbn_urunbilgi,
-        zbn_supplier,
-        zbn_depolama,
-        zbn_depo,
-        zbn_prod_supp,
-        zbn_prod_storage.
-
-DATA: wa_prod_supp_tab    TYPE zbn_prod_supp,
-      wa_prod_storage_tab TYPE zbn_prod_storage,
-      wa_urunbilgi type zbn_urunbilgi,
-      wa_depolama type zbn_depolama,
-      wa_supplier type zbn_supplier.
-
-DATA: gv_urunid     TYPE int4,
-      gv_supid      TYPE int4,
-      gv_depolamaid TYPE int4,
-      gv_depoid     TYPE int4.
 
 START-OF-SELECTION.
   CALL SCREEN 0100.
@@ -188,7 +171,26 @@ ENDMODULE.
 *& <--  p2        text
 *&---------------------------------------------------------------------*
 FORM edit_data .
+  "GUNCELLEME ALANI
 
+  "ILK GUNCELLEME KODLARI
+  UPDATE zbn_urunbilgi SET urunid = gv_urunupd WHERE urunid EQ gv_urunid.
+  UPDATE zbn_supplier SET suppid = gv_suppupd WHERE suppid EQ gv_supid.
+
+
+  UPDATE zbn_prod_supp SET urunid = gv_urunupd WHERE urunid EQ gv_urunid.
+  UPDATE zbn_prod_supp SET tedarikci_id = gv_suppupd WHERE tedarikci_id EQ gv_supid.
+
+
+  UPDATE zbn_depolama SET storeid = gv_strupd WHERE storeid EQ gv_depolamaid.
+
+  UPDATE zbn_prod_storage SET urunid = gv_urunupd WHERE urunid EQ gv_urunid.
+  UPDATE zbn_prod_storage SET depoid = gv_strupd WHERE depoid EQ gv_depolamaid.
+
+  UPDATE zbn_depo SET depoid = gv_depoupd WHERE depoid EQ gv_depoid.
+
+
+  MESSAGE 'Records updated succesfully.' TYPE 'S'.
 ENDFORM.
 *&---------------------------------------------------------------------*
 *& Form DELETE_DATA
@@ -201,24 +203,24 @@ ENDFORM.
 FORM delete_data .
 *SILME
 
-* Ürün ve tedarikçi kayıtları siliniyor
-DELETE FROM zbn_prod_supp WHERE urunid = gv_urunid AND tedarikci_id = gv_supid.
-DELETE FROM zbn_urunbilgi WHERE urunid = gv_urunid.
-DELETE FROM zbn_supplier WHERE suppid = gv_supid.
+* Ürün ve tedarikçi kayit silme alani
+  DELETE FROM zbn_prod_supp WHERE urunid = gv_urunid AND tedarikci_id = gv_supid.
+  DELETE FROM zbn_urunbilgi WHERE urunid = gv_urunid.
+  DELETE FROM zbn_supplier WHERE suppid = gv_supid.
 
-* Depolama kaydı siliniyor
-SELECT SINGLE * FROM zbn_depolama INTO wa_depolama WHERE depoid = gv_depolamaid.
+* Depolama kaydı silme alani
+  SELECT SINGLE * FROM zbn_depolama INTO wa_depolama WHERE depoid = gv_supid.
 
-IF sy-subrc = 0.
-  DELETE FROM zbn_depolama WHERE depoid = gv_depolamaid.
-  DELETE FROM zbn_prod_storage WHERE depoid = gv_depolamaid.
-ENDIF.
+  IF sy-subrc = 0.
+    DELETE FROM zbn_depolama WHERE storeid = gv_supid.
+    DELETE FROM zbn_prod_storage WHERE depoid = gv_supid.
+  ENDIF.
 
-* Depo kaydı siliniyor
-DELETE FROM zbn_depo WHERE depoid = gv_depoid.
+* Depo kaydı silme alani
+  DELETE FROM zbn_depo WHERE depoid = gv_depoid.
 
 * Silme işlemi tamamlandı
-MESSAGE 'Records deleted successfully.' TYPE 'S'.
+  MESSAGE 'Records deleted successfully.' TYPE 'S'.
 
 *  SELECT SINGLE * FROM zbn_prod_supp INTO wa_prod_supp_tab
 *    WHERE urunid = wa_prod_supp_tab-urunid. "esleme
